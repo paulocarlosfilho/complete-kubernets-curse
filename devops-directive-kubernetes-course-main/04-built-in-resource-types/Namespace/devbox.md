@@ -44,3 +44,17 @@ O Devbox já criou as variáveis de ambiente. Siga estes passos:
 - **Sair do shell:** `exit`
 - **Tudo sumiu?** `devbox shell` (volta tudo ao normal)
 - **Erro de TLS/Rede?** Reinicie o terminal e tente `devbox shell` novamente.
+
+
+## 💎 O Segredo da Economia: LocalStack
+Para não depender da aprovação do cadastro da AWS e estudar de graça:
+
+`devbox add localstack pulumi awscli-local`
+
+`localstack start -d`
+
+ex: `aws --endpoint-url=http://localhost:4566 s3 mb s3://bucket-do-paulo`
+
+1. **O que é:** Um container que emula S3, Lambda, DynamoDB, SQS, SNS.
+2. **Comando Mágico:** Use `--endpoint-url=http://localhost:4566` em qualquer comando da AWS CLI.
+3. **Persistência:** O que você cria no LocalStack morre quando o container para (ótimo para limpar lixo de teste!).
